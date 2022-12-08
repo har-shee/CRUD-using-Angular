@@ -1,0 +1,64 @@
+<div class="bg-container">
+  <div>
+
+    <img src="https://www.hospitalitynet.org/picture/153135128/ids-next.jpg?t=1638728111" class="logo"/>
+    <div class="inner-container">
+      <h3 class="heading">Angular - CRUD Operation</h3>
+      <div class="form-and-table-container">
+        <div class="user-form">
+          <form class="formcontrol" [formGroup]="addingUser">
+            <label for="name" class="label">Name</label><br>
+            <input type="text" name="name" [(ngModel)]="user.name" id='name' placeholder="Name" class="input" formControlName="name"><br>
+            <label for="designation" class="label">Designation</label><br>
+            <select id="designation" name="designation" class="input" [(ngModel)]="user.designation" formControlName="designation">
+              <option selected>Manager</option>
+              <option> Frontend Developer</option>
+              <option>Tester</option>
+              <option>Backend Developer</option>
+            </select><br>
+            <label for="salary" class="label">Salary</label><br>
+            <input type="text" name="salary" id='salary' class="input" placeholder="Salary" [(ngModel)]="user.salary" formControlName="salary"><br>
+
+            <div class="mt-3">
+              <button type="button" class="reset button" (click)="reset()">Reset</button>
+            <button class="save button" (click)="addUser()">Save</button>
+
+            </div>
+            
+            
+          </form>
+        </div>
+        <div class="user-table">
+          <table class="table">
+            <tr class="header-row">
+              <th class="title-header cell">Name</th>
+              <th class="title-header cell">Designation</th>
+              <th class="title-header cell">Salary</th>
+              <th class="title-header cell">Action</th>
+            </tr>
+            <tr *ngFor="let user of usersToDisplay">
+              <th class="value">{{user.name}}</th>
+              <th class="value">{{user.designation}}</th>
+              <th class="value">{{user.salary}}</th>
+              <th>
+
+                <i class="bi bi-trash m-2 icons" (click)="deleteUser(user.id)"></i>
+                <i class="bi bi-pencil-square m-2 icons" (click)="editUser(user.id)"></i>
+               
+              </th>
+            </tr>
+            
+          </table>
+        </div>
+        
+  
+      </div>
+  
+    </div>
+
+  </div>
+ 
+</div>
+
+
+
